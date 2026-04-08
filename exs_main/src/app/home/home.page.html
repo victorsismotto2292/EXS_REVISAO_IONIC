@@ -8,10 +8,26 @@
 
 <ion-content [fullscreen]="true">
 
-  <div class="alert-ex1"></div>
+  <div class="alert-ex1">
+        <ion-alert
+        trigger="ver-total"
+        header="Resultado:"
+        message="{{res_ex1}}"
+        [buttons]="alertButtons"
+      >
+    </ion-alert>
+  </div>
 
-  <div class="ex1" style="text-align: center; background-color: #0163aa; padding: 20px">
-    <h1>Exercício 1</h1>
+  <div class="ex1" style="background-color: #0163aa; padding: 20px">
+    <h1 style="text-align: center;">Exercício 1</h1>
     <ion-input label="Digite o preço do tênis" labelPlacement="floating" placeholder="Apenas números" style="width: 200px"></ion-input>
+    <ion-radio-group [(ngModel)]="tipoDesconto">
+      <p>Selecione o tipo de desconto:</p>
+      <ion-radio value="10%">10%</ion-radio><br />
+      <ion-radio value="20%">20%</ion-radio><br />
+      <ion-radio value="30%">30%</ion-radio><br />
+      <ion-radio value="sem-cupom">Sem cupom</ion-radio><br><br>
+      <ion-button expand="block" id="ver-total" (click)="Desconto()" style="max-width: 300px">Calcular desconto</ion-button>
+    </ion-radio-group>
   </div>
 </ion-content>
