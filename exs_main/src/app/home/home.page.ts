@@ -76,21 +76,32 @@ export class HomePage {
       let VB = 1500;
       let VI = 3500;
       let VA = 7500;
-      var D_Valor: number = 0;
+      let custoSetup = 0;
+      var D_Valor = 0;
 
-      let mensagem: string = '';
+      let mensagem = '';
 
       if(this.tipoSetup == 'básico'){
-        D_Valor = Total_Orçamento - VB;
-        if(D_Valor > Total_Orçamento){
-          mensagem = 'positivo';
-          this.res_ex2 = `${mensagem}`;
-        }
-        else if(D_Valor < Total_Orçamento){
-          mensagem = 'negativo';
-          this.res_ex2 = `${mensagem};`
-        }
+        custoSetup = VB;
       }
+      else if(this.tipoSetup == 'intermediário'){
+        custoSetup = VI;
+      }
+      else if(this.tipoSetup == 'avançado'){
+        custoSetup = VA;
+      }
+
+      D_Valor = Total_Orçamento - custoSetup;
+
+      if(D_Valor >= 0){
+        mensagem = `Orçamento suficiente! | Sobraram R$${D_Valor.toFixed(2)}`;
+      }
+      else{
+        D_Valor = D_Valor*(-1);
+        mensagem = `Orçamento insuficiente... | Faltam R$${D_Valor.toFixed(2)} para atingir a meta.`
+      }
+
+      this.res_ex2 = mensagem;
     }
   }  
 }
