@@ -8,7 +8,7 @@
 
 <ion-content [fullscreen]="true">
   <div class="alert_ex1">
-        <ion-alert
+    <ion-alert
       trigger="ver-total-tenis"
       header="Resultado"
       message="{{res_ex1}}"
@@ -18,6 +18,7 @@
 
   <div class="ex1" style="padding: 10px">
     <h1 style="text-align: center; font-size: 1.5rem;">Exercício 1</h1>
+    <ion-item-divider></ion-item-divider>
     <ion-input label="Digite o preço do tênis" labelPlacement="floating" placeholder="Apenas números" [(ngModel)]="preco_tenis"></ion-input>
     <ion-item-divider></ion-item-divider>
     <p>Escolha o tipo de desconto:</p>
@@ -33,16 +34,17 @@
   <ion-item-divider color="light"></ion-item-divider>
 
     <div class="alert_ex2">
-        <ion-alert
-      trigger="ver-total-setup"
-      header="Resultado"
-      message="{{res_ex2}}"
-      [buttons]="alertButtons"
-    ></ion-alert>
+      <ion-alert
+        trigger="ver-total-setup"
+        header="Resultado"
+        message="{{res_ex2}}"
+        [buttons]="alertButtons"
+      ></ion-alert>
   </div>
 
   <div class="ex2" style="padding: 10px">
     <h1 style="text-align: center; font-size: 1.5rem;">Exercício 2</h1>
+    <ion-item-divider></ion-item-divider>
     <ion-input label="Digite o orçamento disponível" labelPlacement="floating" placeholder="Apenas números" [(ngModel)]="orcamento"></ion-input>
     <ion-item-divider></ion-item-divider>
     <p>Selecione o tipo de setup:</p>
@@ -52,5 +54,32 @@
       <ion-radio value="avançado">Avançado</ion-radio><br /><br>
     </ion-radio-group>
     <ion-button expand="block" id="ver-total-setup" style="max-width: 200px" (click)="V_Orcamento()">Verificar</ion-button>
+  </div>
+
+  <ion-item-divider color="light"></ion-item-divider>
+
+  <div class="alert_ex3">
+    <ion-alert
+      trigger="ver-total-pedido"
+      header="Resultado"
+      message="{{res_ex3}}"
+      [buttons]="alertButtons"
+    ></ion-alert>
+  </div>
+
+  <div class="ex3" style="padding: 10px">
+    <h1 style="text-align: center; font-size: 1.5rem;">Exercício 3</h1>
+    <ion-item-divider></ion-item-divider>
+    <ion-input label="Digite o valor do pedido" labelPlacement="floating" placeholder="Apenas números" [(ngModel)]="pedido"></ion-input>
+    <ion-item-divider></ion-item-divider>
+    <ion-input label="Digite o número de pessoas" labelPlacement="floating" placeholder="Apenas números" [(ngModel)]="pessoas"></ion-input>
+    <ion-item-divider></ion-item-divider>
+    <p>Selecione a taxa:</p>
+    <ion-radio-group [(ngModel)]="tipoTaxa">
+      <ion-radio value="frete-grátis">Frete Grátis</ion-radio><br /><br>
+      <ion-radio value="+10%">10%</ion-radio><br /><br>
+      <ion-radio value="+15%">15%</ion-radio><br /><br>
+    </ion-radio-group>
+    <ion-button expand="block" id="ver-total-pedido" style="max-width: 200px" (click)="C_Delivery()">Calcular</ion-button>
   </div>
 </ion-content>

@@ -103,5 +103,45 @@ export class HomePage {
 
       this.res_ex2 = mensagem;
     }
-  }  
+  }
+  
+  // EXERCÍCIO 3:
+  res_ex3: string = '';
+  pedido: string = '';
+  pessoas: string = '';
+  tipoTaxa: string = '';
+
+  C_Delivery(){
+    const Total_Pedido = parseFloat(this.pedido);
+    const Total_Pessoas = parseInt(this.pessoas);
+
+    if(isNaN(Total_Pedido) || isNaN(Total_Pessoas) || Total_Pedido <= 0 || Total_Pessoas <= 0 || this.tipoTaxa == ''){
+      this.res_ex3 = 'Por favor, adicione um valor numérico válido e selecione uma das opções abaixo.'
+    }
+    else{
+      let mensagem: string = '';
+      let TotalCTaxa = Total_Pedido;
+      let Total_Individual = Total_Pessoas;
+
+      if(this.tipoTaxa == 'frete-grátis'){
+        TotalCTaxa = Total_Pedido;
+        Total_Individual = TotalCTaxa / Total_Pessoas;
+        mensagem = 'Já pode cobrar no PIX!';
+      }
+      else if(this.tipoTaxa == '+10%'){
+        TotalCTaxa = Total_Pedido + (Total_Pedido*0.10);
+        Total_Individual = TotalCTaxa / Total_Pessoas;
+        mensagem = 'Uma boa proposta, é pegar ou largar!';
+      }
+      else if(this.tipoTaxa == '+15%'){
+        TotalCTaxa = Total_Pedido + (Total_Pedido*0.15);
+        Total_Individual = TotalCTaxa / Total_Pessoas;
+        mensagem = 'Os amigos vão ter que pagar caro pelo lanche.';
+      }
+
+      this.res_ex3 = 
+      
+      `Valor total do pedido: R$${TotalCTaxa.toFixed(2)} | Valor individual: R$${Total_Individual.toFixed(2)} | ` + mensagem;
+    }
+  }
 }
